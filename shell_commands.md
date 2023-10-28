@@ -10,6 +10,8 @@ python manage.py shell
 __Accessing global variables/config in `settings.py`__
 ```python
 from django.conf import settings
+# Check BASE DIR path
+# settings.BASE_DIR
 
 # default (Optional) - value that is returned when the named attribute is not found
 
