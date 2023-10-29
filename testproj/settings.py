@@ -120,13 +120,20 @@ MY_VAR = "JUST A TEST"
 STATIC_URL = '/static/'
 
 # Local static files not being served in prod
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# Our CDN - serving in prod directory
+# Our CDN - Content Delivery Network - "serving" in prod directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'my_CDN', 'static')
+
+# Collectatic copy all files from STATIC URL
+# ('/static/) to STATIC_ROOT ('/my_CDN/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+# For Model Field model.FileUpload or model.Imageupload uploads
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'my_CDN', 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
