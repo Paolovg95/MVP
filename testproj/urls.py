@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from emails.views import email_entry_get_view
+# # https://docs.djangoproject.com/en/4.0/howto/static-files/
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,5 +27,8 @@ urlpatterns = [
     path('email/<int:id>/', email_entry_get_view)
 ]
 
-if settings.DEBUG: # If in Dev
+if settings.DEBUG: # Denotes we in Development
+
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
