@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from emails.views import email_entry_get_view
+from emails.views import email_entry_get_view, email_entry_create_view
 # # https://docs.djangoproject.com/en/4.0/howto/static-files/
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('email/<int:id>/', email_entry_get_view)
+    path('email/<int:id>/', email_entry_get_view),
+    path('', email_entry_create_view)
 ]
 
 if settings.DEBUG: # Denotes we in Development
