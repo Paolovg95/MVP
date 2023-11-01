@@ -18,6 +18,8 @@ def email_entry_get_view(request, id=id, *args, **kwargs):
 
 
 def email_entry_create_view(request, *args, **kwargs):
+    print(request.user,request.user.is_authenticated)
+
     form = EmailEntryForm(request.POST)
     if request.method == 'POST':
         #print(request.POST)
