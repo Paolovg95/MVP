@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import EmailEntry
 from django.http import HttpResponse, Http404
@@ -7,8 +8,8 @@ from .forms import EmailEntryForm
 
 #html_str = "<!doctype html><html><body><h1>{email}</h1></body></html>"
 
+@login_required(login_url="login/")
 def email_entry_get_view(request, id=id, *args, **kwargs):
-    print(args,kwargs)
     try:
         obj = EmailEntry.objects.get(id=id)
         #my_html = html_str.format(email=obj.email)
@@ -18,7 +19,7 @@ def email_entry_get_view(request, id=id, *args, **kwargs):
 
 
 def email_entry_create_view(request, *args, **kwargs):
-    print(request.user,request.user.is_authenticated)
+    # print(request.user,request.user.is_authenticated)
 
     form = EmailEntryForm(request.POST)
     if request.method == 'POST':
