@@ -13,7 +13,7 @@ class LoginForm(forms.Form):
         username = data.get('username')
         password = data.get('password')
         user = authenticate(username=username, password=password)
-        print(user)
+        # user = User model, django.contrib.auth.models.User =
         if user is not None:
             return user
         else:
@@ -41,6 +41,7 @@ class RegisterForm(forms.ModelForm):
 
     def clean(self):
         data = self.cleaned_data
+        # data = dictionary
         password1 = data.get('password')
         password2 = data.get('password2')
         if password1 != password2:

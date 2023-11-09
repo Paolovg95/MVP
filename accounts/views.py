@@ -18,6 +18,7 @@ def login_view(request):
         # verify valid username and password
         #user = authenticate(username=username, password=password)
         user = form.cleaned_data
+        # user = User model, django.contrib.auth.models.User
         login(request, user)
         return redirect("/")
     return render(request, "accounts/login_form.html", {'form':form})
@@ -25,6 +26,6 @@ def login_view(request):
 def register_view(request):
     form = RegisterForm(request.POST or None)
     if form.is_valid():
-        user = form.save(commit=False)
-        print(form.cleaned_data)
+        user = form.save(commit=False) # Commit = False doesn't save the
+
     return render(request, "accounts/register_form.html", {'form': form})
