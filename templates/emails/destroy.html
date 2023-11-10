@@ -1,6 +1,12 @@
 
-<form method="POST">
-  {% csrf_token %}
-  <p>Are you sure you want to delete?: {{obj.email}}</p>
-  <input type="submit" value="Delete">
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete?: {{obj.email}}</p>
+    <input type="submit" value="Delete">
+  </form>
+
+
+{% endblock content %}

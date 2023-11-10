@@ -15,7 +15,7 @@ def email_entry_get_view(request, id=id, *args, **kwargs):
         #my_html = html_str.format(email=obj.email)
     except EmailEntry.DoesNotExist:
         raise Http404
-    return render(request, "get.html", {"obj": obj})
+    return render(request, "emails/get.html", {"obj": obj})
 
 
 def email_entry_create_view(request, *args, **kwargs):
@@ -33,7 +33,7 @@ def email_entry_create_view(request, *args, **kwargs):
 
             form = EmailEntryForm()
 
-    return render(request, "form.html", {'form': form})
+    return render(request, "home.html", {'form': form})
 
 @login_required(login_url="/login")
 def email_entry_destroy_view(request, id=id, *args, **kwargs):
