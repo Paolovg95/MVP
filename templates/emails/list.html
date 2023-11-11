@@ -2,9 +2,9 @@
 
 {% block content %}
 
-  {% for obj in object_list %}
-  <li>{{obj.email}}</li>
+{% for o in object_list %}
+  <li>
+    {{ o.email }}
+  </li>
   {% endfor %}
-
-
 {% endblock content %}

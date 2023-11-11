@@ -8,7 +8,7 @@ from .forms import EmailEntryForm, EmailEntryUpdateForm
 
 #html_str = "<!doctype html><html><body><h1>{email}</h1></body></html>"
 
-@login_required(login_url="/login")
+@login_required()
 def email_entry_get_view(request, id=id, *args, **kwargs):
     try:
         obj = EmailEntry.objects.get(id=id)
@@ -16,7 +16,7 @@ def email_entry_get_view(request, id=id, *args, **kwargs):
     except EmailEntry.DoesNotExist:
         raise Http404
     return render(request, "emails/get.html", {"obj": obj})
-
+@login_required()
 
 def email_entry_create_view(request, *args, **kwargs):
     # print(request.user,request.user.is_authenticated)
@@ -35,7 +35,7 @@ def email_entry_create_view(request, *args, **kwargs):
 
     return render(request, "home.html", {'form': form})
 
-@login_required(login_url="/login")
+@login_required()
 def email_entry_destroy_view(request, id=id, *args, **kwargs):
     try:
         obj = EmailEntry.objects.get(id=id)
@@ -50,15 +50,14 @@ def email_entry_destroy_view(request, id=id, *args, **kwargs):
     return render(request, "emails/destroy.html", {"obj": obj})
 
 
-@login_required(login_url="/login")
+@login_required()
 def email_entry_list_view(request,*args, **kwargs):
     obj = EmailEntry.objects.all()
 
 
     return render(request, "emails/list.html", {"object_list": obj})
 
-
-
+@login_required()
 def email_entry_update_view(request, id=id, *args, **kwargs):
     try:
         obj = EmailEntry.objects.get(id=id)
