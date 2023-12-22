@@ -16,8 +16,8 @@ def email_entry_get_view(request, id=id, *args, **kwargs):
     except EmailEntry.DoesNotExist:
         raise Http404
     return render(request, "emails/get.html", {"obj": obj})
-@login_required()
 
+@login_required()
 def email_entry_create_view(request, *args, **kwargs):
     # print(request.user,request.user.is_authenticated)
 

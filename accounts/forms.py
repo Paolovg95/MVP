@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth.hashers import make_password
 
 User = get_user_model()
 
@@ -40,8 +41,7 @@ class RegisterForm(forms.ModelForm):
         return username
 
     def clean(self):
-        data = self.cleaned_data
-        # data = dictionary
+        data = self.cleaned_data # data = dictionary
         password1 = data.get('password')
         password2 = data.get('password2')
         if password1 != password2:

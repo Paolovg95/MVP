@@ -3,7 +3,7 @@ from .models import EmailEntry
 
 
 class EmailEntryUpdateForm(forms.ModelForm):
-    class Meta: # How to describe the from we're using
+    class Meta: # How to describe the form we're using
         model = EmailEntry # Declare the model which this form is using
         fields = ['email','name']
 

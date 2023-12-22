@@ -33,7 +33,6 @@ urlpatterns = [
     path('logout/', logout_view),
     path('register/', register_view),
     path('email/<int:id>/destroy/', email_entry_destroy_view)
-
 ]
 
 if settings.DEBUG: # Denotes we in Development
